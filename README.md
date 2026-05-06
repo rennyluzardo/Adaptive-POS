@@ -2,120 +2,120 @@
 
 🚀 **AI-Driven Generative UI Orchestration with LangGraph & NestJS**
 
-Un sistema de Punto de Venta (POS) adaptativo que utiliza inteligencia artificial para generar interfaces de usuario dinámicamente mediante arquitectura Server-Driven UI. El backend evalúa la intención del usuario y devuelve esquemas de UI que el frontend renderiza en tiempo real.
+An adaptive Point of Sale (POS) system that uses artificial intelligence to dynamically generate user interfaces through Server-Driven UI architecture. The backend evaluates user intent and returns UI schemas that the frontend renders in real-time.
 
-## 🏗️ Arquitectura Innovadora
+## 🏗️ Innovative Architecture
 
-### Paradigma Core: Generative UI
-- **Backend Inteligente**: NestJS + LangGraph.js evalúa la intención del usuario y devuelve **Esquemas de UI** (qué componente renderizar y con qué props)
-- **Frontend Adaptativo**: React actúa como un cliente tonto inteligente con un diccionario de componentes pre-construidos que se montan dinámicamente
-- **Comunicación en Tiempo Real**: Server-Sent Events (SSE) para emitir el estado del grafo al cliente
+### Core Paradigm: Generative UI
+- **Intelligent Backend**: NestJS + LangGraph.js evaluates user intent and returns **UI Schemas** (which component to render and with what props)
+- **Adaptive Frontend**: React acts as an intelligent dumb client with a dictionary of pre-built components that mount dynamically
+- **Real-time Communication**: Server-Sent Events (SSE) to emit graph state to the client
 
-### Stack Tecnológico
+### Tech Stack
 
 #### Backend (NestJS)
 ```
 🔧 Framework: NestJS (TypeScript)
-🧠 IA Orquestación: LangGraph.js (@langchain/langgraph)
+🧠 AI Orchestration: LangGraph.js (@langchain/langgraph)
 🤖 LLM Provider: Google Gemini API (@langchain/google-genai)
-✅ Validación: Zod para esquemas robustos
-📦 Arquitectura: Módulos, servicios y controladores
-🔍 Observabilidad: Integración con LangSmith
+✅ Validation: Zod for robust schemas
+📦 Architecture: Modules, services, and controllers
+🔍 Observability: LangSmith integration
 ```
 
 #### Frontend (React)
 ```
-⚛️ Framework: React 19 con hooks modernos
+⚛️ Framework: React 19 with modern hooks
 🎨 Styling: TailwindCSS 4 (JIT, arbitrary values)
-🔧 Build: Vite para desarrollo rápido
-🧩 Componentes: Generativos con ComponentRegistry
-📱 UI: Estilo Scandinavian (minimalista, funcional)
+🔧 Build: Vite for fast development
+🧩 Components: Generative with ComponentRegistry
+📱 UI: Scandinavian style (minimalist, functional)
 ```
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
-### 🤖 Agentes Inteligentes
-Sistema multi-agente especializado con roles definidos:
+### 🤖 Intelligent Agents
+Specialized multi-agent system with defined roles:
 
-- **Frontend Agent**: Materializa UISchemas en componentes React
-- **Backend Agent**: Experto en NestJS y LangGraph.js
-- **QA Agent**: Validación de contratos y pruebas de regresión
-- **Infra Agent**: Gestión de monorepo y observabilidad
-- **Doc Agent**: Mantenimiento de documentación técnica
+- **Frontend Agent**: Materializes UISchemas into React components
+- **Backend Agent**: Expert in NestJS and LangGraph.js
+- **QA Agent**: Contract validation and regression testing
+- **Infra Agent**: Monorepo management and observability
+- **Doc Agent**: Technical documentation maintenance
 
-### 📋 Esquema de Contrato Único
-El contrato entre backend y frontend está definido por esquemas Zod:
+### 📋 Single Contract Schema
+The contract between backend and frontend is defined by Zod schemas:
 
 ```typescript
-// UISchema - Contrato único de verdad
+// UISchema - Single source of truth
 {
-  component: string,    // Nombre del componente a renderizar
-  props: Record<string, any>,  // Propiedades del componente
-  status: 'loading' | 'success' | 'error'  // Estado
+  component: string,    // Component name to render
+  props: Record<string, any>,  // Component properties
+  status: 'loading' | 'success' | 'error'  // State
 }
 ```
 
-### 🔧 Herramientas Integradas
-- **Gestión de Inventario**: Tools para LangGraph con acceso a datos de productos
-- **Carrito de Compras**: Servicios para manejo de operaciones POS
-- **Validación Robusta**: Manejo de alucinaciones LLM con sanitización JSON
+### 🔧 Integrated Tools
+- **Inventory Management**: LangGraph tools with product data access
+- **Shopping Cart**: Services for POS operations handling
+- **Robust Validation**: LLM hallucination handling with JSON sanitization
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 Adaptive-POS/
 ├── backend/                 # NestJS API + LangGraph
 │   ├── src/
-│   │   ├── application/     # Lógica de orquestación
+│   │   ├── application/     # Orchestration logic
 │   │   │   └── orchestration/
-│   │   │       └── pos-graph.builder.ts  # Grafo principal
-│   │   ├── core/           # Dominio y esquemas
+│   │   │       └── pos-graph.builder.ts  # Main graph
+│   │   ├── core/           # Domain and schemas
 │   │   │   └── domain/
-│   │   │       ├── ui-schema.schema.ts   # Contrato Zod
+│   │   │       ├── ui-schema.schema.ts   # Zod contract
 │   │   │       └── agent.interaction.dto.ts
-│   │   ├── infrastructure/ # Servicios externos
+│   │   ├── infrastructure/ # External services
 │   │   │   ├── ai/gemini-adapter.service.ts
 │   │   │   ├── inventory/inventory.service.ts
 │   │   │   └── cart/cart.service.ts
-│   │   └── controllers/    # Endpoints API
+│   │   └── controllers/    # API endpoints
 │   └── package.json
 ├── frontend/               # React + Tailwind
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── generative/  # Componentes dinámicos
+│   │   │   └── generative/  # Dynamic components
 │   │   │       ├── core/ComponentRenderer.tsx
 │   │   │       ├── catalog/ProductCatalog.tsx
 │   │   │       └── messages/SimpleMessage.tsx
 │   │   ├── types/
-│   │   │   └── ui-schema.ts  # Tipos TypeScript
+│   │   │   └── ui-schema.ts  # TypeScript types
 │   │   └── App.tsx
 │   └── package.json
-├── AGENTS.md              # Documentación de agentes
+├── AGENTS.md              # Agent documentation
 └── README.md
 ```
 
-## 🛠️ Configuración y Desarrollo
+## 🛠️ Setup and Development
 
-### Prerrequisitos
+### Prerequisites
 - Node.js 18+
 - Yarn 4.x
 - Google Gemini API Key
 
-### Instalación
+### Installation
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone <repository-url>
 cd Adaptive-POS
 
-# Instalar dependencias del monorepo
+# Install monorepo dependencies
 yarn install
 
-# Configurar variables de entorno
+# Set up environment variables
 cp backend/.env.example backend/.env
-# Editar backend/.env con tu API key de Gemini
+# Edit backend/.env with your Gemini API key
 ```
 
-### Desarrollo
+### Development
 ```bash
 # Backend (NestJS)
 cd backend
@@ -126,71 +126,71 @@ cd frontend
 yarn dev
 ```
 
-### Scripts Disponibles
+### Available Scripts
 ```bash
 # Backend
-yarn build          # Build para producción
-yarn test           # Tests unitarios
-yarn test:e2e       # Tests end-to-end
-yarn lint           # Linting con ESLint
+yarn build          # Production build
+yarn test           # Unit tests
+yarn test:e2e       # End-to-end tests
+yarn lint           # ESLint linting
 
 # Frontend
-yarn build          # Build para producción
-yarn preview        # Preview del build
-yarn lint           # Linting con ESLint
+yarn build          # Production build
+yarn preview        # Preview build
+yarn lint           # ESLint linting
 ```
 
-## 🧪 Testing y Calidad
+## 🧪 Testing and Quality
 
-### Estrategia de Testing
-- **Prompt Regression Testing**: Validación de prompts contra alucinaciones
-- **Contract Testing**: Verificación del esquema UISchema
-- **Integration Tests**: Flujo completo de usuario a UI
-- **Component Tests**: Validación de componentes React
+### Testing Strategy
+- **Prompt Regression Testing**: Prompt validation against hallucinations
+- **Contract Testing**: UISchema verification
+- **Integration Tests**: Complete user-to-UI flow
+- **Component Tests**: React component validation
 
-### Calidad de Código
-- **TypeScript Estricto**: Sin `any`, tipado robusto
-- **ESLint + Prettier**: Formato consistente
-- **Zod Validation**: Validación en runtime
-- **Jest**: Framework de testing
+### Code Quality
+- **Strict TypeScript**: No `any`, robust typing
+- **ESLint + Prettier**: Consistent formatting
+- **Zod Validation**: Runtime validation
+- **Jest**: Testing framework
 
-## 🌟 Por Qué Adaptive POS es Diferente
+## 🌟 Why Adaptive POS is Different
 
-### 🎯 Enfoque Spec-Driven Development (SDD)
-1. **Definir Esquema Zod** (La Spec)
-2. **QA Agent Valida** con tests de regresión
-3. **Frontend y Backend** implementan en paralelo
-4. **Integración** y verificación end-to-end
+### 🎯 Spec-Driven Development (SDD) Approach
+1. **Define Zod Schema** (The Spec)
+2. **QA Agent Validates** with regression tests
+3. **Frontend and Backend** implement in parallel
+4. **Integration** and end-to-end verification
 
-### 🛡️ Resiliencia ante Alucinaciones
-- Sanitización JSON automática
-- Manejo de errores robusto
-- Validación Zod en runtime
-- Componentes fallback para errores
+### 🛡️ Hallucination Resilience
+- Automatic JSON sanitization
+- Robust error handling
+- Runtime Zod validation
+- Fallback components for errors
 
-### 🚀 Performance y Escalabilidad
-- React 19 con concurrent mode
+### 🚀 Performance and Scalability
+- React 19 with concurrent mode
 - TailwindCSS 4 JIT compilation
-- NestJS con arquitectura modular
-- LangGraph para orquestación eficiente
+- NestJS with modular architecture
+- LangGraph for efficient orchestration
 
-## 🤝 Cómo Contribuir
+## 🤝 How to Contribute
 
-1. **Fork** el repositorio
-2. **Crear** una feature branch (`git checkout -b feature/amazing-feature`)
-3. **Seguir** el Spec-Driven Workflow definido en `AGENTS.md`
-4. **Testear** con el suite completo de pruebas
-5. **Commit** con mensajes convencionales
-6. **Push** al branch y crear **Pull Request**
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Follow** the Spec-Driven Workflow defined in `AGENTS.md`
+4. **Test** with the complete test suite
+5. **Commit** with conventional messages
+6. **Push** to the branch and create a **Pull Request**
 
-## 📄 Licencia
+## 📄 License
 
-Este proyecto está bajo licencia UNLICENSED.
+This project is under UNLICENSED license.
 
-## 👥 Equipo
+## 👥 Team
 
-Proyecto desarrollado siguiendo la metodología de agentes especializados definida en `AGENTS.md`.
+Project developed following the specialized agent methodology defined in `AGENTS.md`.
 
 ---
 
-**🔮 El futuro del POS es adaptativo, inteligente y generativo.**
+**🔮 The future of POS is adaptive, intelligent, and generative.**
