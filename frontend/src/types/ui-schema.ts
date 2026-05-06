@@ -25,3 +25,17 @@ export interface SimpleMessageProps {
   text: string;
   type: 'info' | 'success' | 'warning';
 }
+
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  subtotal: number;
+}
+
+export interface ShoppingCartProps {
+  items: CartItem[];
+  total: number;
+  itemCount: number;
+}
