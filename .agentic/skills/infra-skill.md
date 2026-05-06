@@ -136,4 +136,3 @@ Debes dominar los siguientes aspectos del código e infraestructura:
 - ❌ **Asumir que lo que funciona en tu máquina funciona para todos**: Prueba los cambios en una copia limpia del repositorio si es posible, o al menos verifica que las instrucciones de setup sean claras y completas.
 - ❌ **Desestandarizar el entorno de desarrollo**: Sigue las herramientas y configuraciones existentes (Yarn, Jest, React Testing Library, ESLint, Prettier) a menos que haya un consenso claro para cambiarlos.
 - ❌ **Negligenciar el rendimiento de builds**: Si un cambio introduce un aumento significativo en el tiempo de build, investiga causas y busca optimizaciones (cacheo, paralelismo, etc.).
-"
