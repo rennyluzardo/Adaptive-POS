@@ -2,6 +2,15 @@ import React from 'react';
 import type { ProductCatalogProps, ProductItem } from '../../../types/ui-schema';
 
 const ProductCatalog: React.FC<ProductCatalogProps> = ({ items }) => {
+  const handleAddToCart = (productName: string) => {
+    // Trigger a message that the agent can intercept
+    const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+    if (input) {
+      input.value = `Agrega ${productName} al carrito`;
+      input.focus();
+    }
+  };
+
   return (
     <div className="w-full bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
       <div className="px-6 py-4 border-b border-gray-100">
@@ -36,12 +45,19 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ items }) => {
                     Stock: {item.stock}
                   </span>
                 </div>
-                {isOutOfStock && (
+                {isOutOfStock ? (
                   <button
                     disabled
                     className="mt-3 w-full px-4 py-2 bg-gray-200 text-gray-400 rounded-lg text-sm font-medium cursor-not-allowed"
                   >
                     No disponible
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => handleAddToCart(item.name)}
+                    className="mt-3 w-full px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                  >
+                    Comprar
                   </button>
                 )}
               </div>
