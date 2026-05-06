@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { ComponentRenderer, registry } from './components/generative/core/ComponentRenderer';
 import ProductCatalog from './components/generative/catalog/ProductCatalog';
+import ShoppingCart from './components/generative/cart/ShoppingCart';
 import SimpleMessage from './components/generative/messages/SimpleMessage';
 import SkeletonLoader from './components/generative/core/SkeletonLoader';
 import type { AgentState } from './types/ui-schema';
 
 // Register components
 registry.register('ProductCatalog', ProductCatalog);
+registry.register('ShoppingCart', ShoppingCart);
 registry.register('SimpleMessage', SimpleMessage);
 registry.register('ErrorComponent', SimpleMessage);
 

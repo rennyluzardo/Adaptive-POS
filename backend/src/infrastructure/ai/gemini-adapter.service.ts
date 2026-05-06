@@ -14,7 +14,7 @@ export class GeminiAdapterService {
 
     this.model = new ChatGoogleGenerativeAI({
       apiKey,
-      model: 'gemini-2.5-flash-lite',
+      model: 'gemini-3.1-flash-lite-preview',
     });
   }
 
