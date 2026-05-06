@@ -1,6 +1,17 @@
 import https from 'https';
+import dotenv from 'dotenv';
 
-const API_KEY = process.env.GOOGLE_API_KEY || 'AIzaSyB53wLja_tPFEwxe3dJVedtsPZWTqTtCss';
+// Load environment variables from .env file
+dotenv.config();
+
+const API_KEY = process.env.GOOGLE_API_KEY;
+
+if (!API_KEY) {
+  console.error('Error: GOOGLE_API_KEY environment variable is not set');
+  console.error('Please create a .env file with your Google API key:');
+  console.error('GOOGLE_API_KEY=your_actual_api_key_here');
+  process.exit(1);
+}
 
 const options = {
   hostname: 'generativelanguage.googleapis.com',
